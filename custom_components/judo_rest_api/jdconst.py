@@ -114,7 +114,7 @@ PARAMS_HOURS: dict = {
 
 PARAMS_GDH: dict = {
     "min": 1,
-    "max": 13,
+    "max": 18,
     "step": 1,
     "preciosion": 1,
     "unit": "°dH",
