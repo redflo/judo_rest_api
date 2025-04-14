@@ -38,7 +38,7 @@ async def validate_input(data: dict) -> dict[str, Any]:
 class ConfigFlow(config_entries.ConfigFlow, domain=CONST.DOMAIN):  # pylint: disable=W0223
     """Class config flow."""
 
-    VERSION = 2
+    VERSION = 3
     # Pick one of the available connection classes in homeassistant/config_entries.py
     # This tells HA if it should be asking for updates, or it'll be notified of updates
     # automatically. This example uses PUSH, as the dummy hub will notify HA of
@@ -62,7 +62,7 @@ class ConfigFlow(config_entries.ConfigFlow, domain=CONST.DOMAIN):  # pylint: dis
             schema={
                 vol.Required(schema=CONF.HOST): str,
                 vol.Optional(schema=CONF.PORT, default="80"): cv.port,
-                vol.Optional(schema=CONF.TLS, default=False): cv.tls,
+                vol.Optional(schema=CONF.TLS, default=False): bool,
                 vol.Optional(schema=CONF.USERNAME, default="admin"): str,
                 vol.Optional(schema=CONF.PASSWORD, default="Connectivity"): str,
                 vol.Optional(schema=CONF.DEVICE_POSTFIX, default=""): str,
@@ -90,7 +90,7 @@ class ConfigFlow(config_entries.ConfigFlow, domain=CONST.DOMAIN):  # pylint: dis
             description_placeholders={
                 CONF.HOST: "host",
                 CONF.PORT: "port",
-                CONF.TLS: "",
+                CONF.TLS: "TLS",
                 CONF.USERNAME: "username",
                 CONF.PASSWORD: "password",
                 CONF.DEVICE_POSTFIX: "Device-Postfix",
@@ -122,7 +122,7 @@ class ConfigFlow(config_entries.ConfigFlow, domain=CONST.DOMAIN):  # pylint: dis
                 ): cv.port,
                 vol.Optional(
                     schema=CONF.TLS, default=reconfigure_entry.data[CONF.TLS]
-                ): cv.tls,
+                ): bool,
                 vol.Optional(
                     schema=CONF.USERNAME, default=reconfigure_entry.data[CONF.USERNAME]
                 ): str,

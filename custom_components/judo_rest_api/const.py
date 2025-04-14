@@ -13,10 +13,11 @@ from homeassistant.const import (
 
 @dataclass(frozen=True)
 class ConfConstants:
-    """Constants used for configurastion"""
+    """Constants used for configuration"""
 
     HOST = CONF_HOST
     PORT = CONF_PORT
+    TLS = "TLS"
     PASSWORD = CONF_PASSWORD
     USERNAME = CONF_USERNAME
     DEVICE_POSTFIX = "Device-Postfix"
@@ -34,6 +35,7 @@ class MainConstants:
     SCAN_INTERVAL = "60"  # timedelta(seconds=60))
     UNIQUE_ID = "unique_id"
     APPID = 100
+    TLS = False
 
 
 CONST = MainConstants()
