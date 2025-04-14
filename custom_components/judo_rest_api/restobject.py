@@ -32,12 +32,13 @@ class RestAPI:
         """
         self._ip = config_entry.data[CONF.HOST]
         self._port = config_entry.data[CONF.PORT]
+        self._tls = config_entry.data[CONF.TLS]
         self._username = config_entry.data[CONF.USERNAME]
         self._password = config_entry.data[CONF.PASSWORD]
         self._hass = hass
         self._rest_client = None
         self._base_url = (
-            "http://"
+            "https://" if self._tls else "http://"
             # + str(self._user)
             # + ":"
             # + str(self._password)
@@ -60,6 +61,7 @@ class RestAPI:
                 url=self._base_url,
                 auth=(self._username, self._password),
                 timeout=10,
+                verify = False,
             )
         )
 
@@ -81,6 +83,7 @@ class RestAPI:
                     url=url,
                     auth=(self._username, self._password),
                     timeout=10,
+                    verify = False,
                 )
             )
             log.debug("Response %s", response.status_code)
@@ -115,6 +118,7 @@ class RestAPI:
                     url=url,
                     auth=(self._username, self._password),
                     timeout=2,
+                    verify = False,
                 )
             )
             res = await self._hass.async_add_executor_job(response.json)

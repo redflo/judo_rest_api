@@ -14,7 +14,8 @@
                     "Device-Postfix": "Device postfix",
                     "scan_interval": "API poll interval (default = 60 sec)",
                     "host": "Host name or IP address",
-                    "port": "HTTP Port",
+                    "port": "HTTP(S) Port",
+                    "tls": "Use HTTPS",
                     "username": "User name",
                     "password": "Password"
                 }
@@ -24,7 +25,8 @@
                     "Device-Postfix": "Device postfix",
                     "scan_interval": "API poll interval (default = 60 sec)",
                     "host": "Host name or IP address",
-                    "port": "HTTP Port",
+                    "port": "HTTP(S) Port",
+                    "tls": "Use HTTPS",
                     "username": "User name",
                     "password": "Password"
                 }

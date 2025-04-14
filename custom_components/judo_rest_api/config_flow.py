@@ -62,6 +62,7 @@ class ConfigFlow(config_entries.ConfigFlow, domain=CONST.DOMAIN):  # pylint: dis
             schema={
                 vol.Required(schema=CONF.HOST): str,
                 vol.Optional(schema=CONF.PORT, default="80"): cv.port,
+                vol.Optional(schema=CONF.TLS, default=False): cv.tls,
                 vol.Optional(schema=CONF.USERNAME, default="admin"): str,
                 vol.Optional(schema=CONF.PASSWORD, default="Connectivity"): str,
                 vol.Optional(schema=CONF.DEVICE_POSTFIX, default=""): str,
@@ -89,6 +90,7 @@ class ConfigFlow(config_entries.ConfigFlow, domain=CONST.DOMAIN):  # pylint: dis
             description_placeholders={
                 CONF.HOST: "host",
                 CONF.PORT: "port",
+                CONF.TLS: "",
                 CONF.USERNAME: "username",
                 CONF.PASSWORD: "password",
                 CONF.DEVICE_POSTFIX: "Device-Postfix",
@@ -119,6 +121,9 @@ class ConfigFlow(config_entries.ConfigFlow, domain=CONST.DOMAIN):  # pylint: dis
                     schema=CONF.PORT, default=reconfigure_entry.data[CONF.PORT]
                 ): cv.port,
                 vol.Optional(
+                    schema=CONF.TLS, default=reconfigure_entry.data[CONF.TLS]
+                ): cv.tls,
+                vol.Optional(
                     schema=CONF.USERNAME, default=reconfigure_entry.data[CONF.USERNAME]
                 ): str,
                 vol.Optional(
@@ -143,6 +148,7 @@ class ConfigFlow(config_entries.ConfigFlow, domain=CONST.DOMAIN):  # pylint: dis
             description_placeholders={
                 CONF.HOST: "host",
                 CONF.PORT: "port",
+                CONF.TLS: "",
                 CONF.USERNAME: "username",
                 CONF.PASSWORD: "password",
                 CONF.DEVICE_POSTFIX: "Device-Postfix",
