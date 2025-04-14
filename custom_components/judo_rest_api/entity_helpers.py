@@ -61,10 +61,10 @@ async def build_entity_list(
                     entries.append(
                         MyNumberEntity(config_entry, item, coordinator, index)
                     )
-                # case TYPES.SWITCH:
-                #   entries.append(
-                #       MySwitchEntity(config_entry, item, coordinator, index)
-                #   )
+                case TYPES.SWITCH:
+                  entries.append(
+                      MySwitchEntity(config_entry, item, coordinator, index)
+                  )
                 case TYPES.BUTTON:
                     entries.append(
                         MyButtonEntity(config_entry, item, coordinator, index)

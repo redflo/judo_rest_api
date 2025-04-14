@@ -95,7 +95,7 @@ async def async_migrate_entry(hass: HomeAssistant, config_entry: MyConfigEntry):
     
     if config_entry.version < 3:
         log.warning("Version <3 detected")
-        new_data[CONF.TLS] = False
+        new_data[CONF.SSL] = False
         hass.config_entries.async_update_entry(
             config_entry, data=new_data, minor_version=2, version=3
         )

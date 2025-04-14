@@ -32,13 +32,13 @@ class RestAPI:
         """
         self._ip = config_entry.data[CONF.HOST]
         self._port = config_entry.data[CONF.PORT]
-        self._tls = config_entry.data[CONF.TLS]
+        self._ssl = config_entry.data[CONF.SSL]
         self._username = config_entry.data[CONF.USERNAME]
         self._password = config_entry.data[CONF.PASSWORD]
         self._hass = hass
         self._rest_client = None
         self._base_url = (
-            "https://" if self._tls else "http://"
+            "https://" if bool(self._ssl) else "http://"
             # + str(self._user)
             # + ":"
             # + str(self._password)

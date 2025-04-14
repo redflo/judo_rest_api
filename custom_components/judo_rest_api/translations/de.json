@@ -14,7 +14,8 @@
                     "Device-Postfix": "Device postfix",
                     "scan_interval": "API-Abfrageintervall (standard = 60 s)",
                     "host": "Hostname oder IP Adresse",
-                    "port": "HTTP Port",
+                    "port": "HTTP(S) Port",
+                    "ssl": "Benutze HTTPS",
                     "username": "Benutzername",
                     "password": "Passwor1"
                 }
@@ -24,7 +25,8 @@
                     "Device-Postfix": "Device postfix",
                     "scan_interval": "API-Abfrageintervall (standard = 60 s)",
                     "host": "Hostname oder IP Adresse",
-                    "port": "HTTP Port",
+                    "port": "HTTP(S) Port",
+                    "ssl": "Benutze HTTPS",
                     "username": "Benutzername",
                     "password": "Passwor1"
                 }

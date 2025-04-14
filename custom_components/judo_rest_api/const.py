@@ -5,6 +5,7 @@ from dataclasses import dataclass
 from homeassistant.const import (
     CONF_HOST,
     CONF_PORT,
+    CONF_SSL,
     CONF_PASSWORD,
     CONF_USERNAME,
     CONF_SCAN_INTERVAL,
@@ -17,7 +18,7 @@ class ConfConstants:
 
     HOST = CONF_HOST
     PORT = CONF_PORT
-    TLS = "TLS"
+    SSL = CONF_SSL
     PASSWORD = CONF_PASSWORD
     USERNAME = CONF_USERNAME
     DEVICE_POSTFIX = "Device-Postfix"
@@ -35,7 +36,7 @@ class MainConstants:
     SCAN_INTERVAL = "60"  # timedelta(seconds=60))
     UNIQUE_ID = "unique_id"
     APPID = 100
-    TLS = False
+    SSL = False
 
 
 CONST = MainConstants()
