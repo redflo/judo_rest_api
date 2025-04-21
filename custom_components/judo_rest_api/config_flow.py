@@ -90,7 +90,6 @@ class ConfigFlow(config_entries.ConfigFlow, domain=CONST.DOMAIN):  # pylint: dis
             description_placeholders={
                 CONF.HOST: "host",
                 CONF.PORT: "port",
-                CONF.SSL: "ssl",
                 CONF.USERNAME: "username",
                 CONF.PASSWORD: "password",
                 CONF.DEVICE_POSTFIX: "Device-Postfix",
@@ -120,8 +119,8 @@ class ConfigFlow(config_entries.ConfigFlow, domain=CONST.DOMAIN):  # pylint: dis
                 vol.Optional(
                     schema=CONF.PORT, default=reconfigure_entry.data[CONF.PORT]
                 ): cv.port,
-                vol.Required(
-                    schema=CONF.SSL, default=reconfigure_entry.data[CONF.SSL]
+                vol.Optional(
+                    schema=CONF.SSL, default=False
                 ): bool,
                 vol.Optional(
                     schema=CONF.USERNAME, default=reconfigure_entry.data[CONF.USERNAME]

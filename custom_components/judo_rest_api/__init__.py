@@ -78,9 +78,9 @@ async def async_migrate_entry(hass: HomeAssistant, config_entry: MyConfigEntry):
 
     new_data = {**config_entry.data}
 
-    if config_entry.version > 1:
+    #if config_entry.version > 1:
         # This means the user has downgraded from a future version
-        return True
+    #    return True
 
     # to ensure all update paths we have to check every version to not overwrite existing entries
     if config_entry.version < 1:
